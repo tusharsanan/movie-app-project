@@ -1,0 +1,11 @@
+@import "src/app/scss/mixins/breakpoints";
+
+.container {
+  padding: 24px 16px;
+  margin: 0 auto;
+  max-width: $max-container-width;
+
+  @include media-breakpoint-sm-up() {
+    padding: 24px 50px;
+  }
+}

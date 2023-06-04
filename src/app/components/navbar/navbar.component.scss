@@ -1,0 +1,19 @@
+@import "src/app/scss/variables/_variables.scss";
+
+nav {
+  ul {
+    display: flex;
+  }
+
+  li {
+    display: inline-block;
+    padding: 0 12px;
+    a {
+      color: #fff;
+      &.navbar__item--active {
+        color: $secondary-color;
+        font-weight: bold;
+      }
+    }
+  }
+}

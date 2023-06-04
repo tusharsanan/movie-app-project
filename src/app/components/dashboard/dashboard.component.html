@@ -1,0 +1,22 @@
+<app-search-bar></app-search-bar>
+
+<section class="dashboard" aria-label="Dashboard">
+  <ng-container *ngIf="movieSearchDetails$ | async as movieSearchResults">
+    <div
+      *ngIf="movieSearchResults.Response && movieSearchResults.Search?.length"
+    >
+      <h3>Search results:</h3>
+
+      <div class="dashboard__wrapper">
+        <app-movie-card
+          *ngFor="let movie of movieSearchResults?.Search"
+          [movie]="movie"
+        ></app-movie-card>
+      </div>
+    </div>
+
+    <div *ngIf="movieSearchResults.Error as errorResponse">
+      <p class="error-notification">Error: {{ errorResponse }}</p>
+    </div>
+  </ng-container>
+</section>

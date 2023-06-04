@@ -1,0 +1,55 @@
+<section *ngIf="movieDetails$ | async as movieDetails" class="movieDetails">
+  <h1>{{ movieDetails.Title }} ({{ movieDetails.Released }})</h1>
+
+  <div class="movieDetails_basicInfo">
+    <span
+      >{{ movieDetails.Type }} | {{ movieDetails.Year }} |
+      {{ movieDetails.Rated }} | {{ movieDetails.Runtime }}</span
+    >
+  </div>
+
+  <div class="movieDetails__description">
+    <img alt="Poster of a movie" [src]="movieDetails.Poster" />
+
+    <div class="movieDetails__description__wrapper">
+      <p data-test="movie_details_plot">
+        {{ movieDetails.Plot! | showCharacters : togglePipe : plotType }}
+        <a
+          *ngIf="movieDetails.Plot!.length > 200 && plotType === 'full'"
+          (click)="togglePipe = !togglePipe"
+          href="javascript:void(0)"
+          >{{ togglePipe ? "Show More" : "Show Less" }}</a
+        >
+      </p>
+
+      <div class="movieDetails__description__genre">
+        <p><strong>Genre:</strong></p>
+        <ul *ngFor="let genre of movieDetails.Genre! | stringToArray">
+          <li>{{ genre }}</li>
+        </ul>
+      </div>
+
+      <p data-test="movie_details_director">
+        <strong>Director:</strong> {{ movieDetails.Director }}
+      </p>
+
+      <div data-test="movie_details_actors">
+        <p><strong>Actors:</strong></p>
+        <ul *ngFor="let actor of movieDetails.Actors! | stringToArray">
+          <li>{{ actor }}</li>
+        </ul>
+      </div>
+
+      <div class="movieDetails__description__writer">
+        <p><strong>Writers:</strong></p>
+        <ul *ngFor="let writer of movieDetails.Writer! | stringToArray">
+          <li>{{ writer }}</li>
+        </ul>
+      </div>
+
+      <p data-test="movie_details_awards">
+        <strong>Awards:</strong> {{ movieDetails.Awards }}
+      </p>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,6 @@
+<div class="featured-movies">
+  <app-movie-card
+    *ngFor="let featuredMovie of featuredMovies$ | async"
+    [movie]="featuredMovie"
+  ></app-movie-card>
+</div>

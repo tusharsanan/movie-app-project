@@ -1,0 +1,66 @@
+@import "src/app/scss/mixins/breakpoints";
+@import "src/app/scss/variables/variables";
+
+.search-bar {
+  input[type="search"] {
+    padding: 12px 4px 12px 40px;
+    border-radius: 8px;
+    width: 100%;
+    border: 1px solid #555;
+    background: transparent url("/assets/images/search.svg") no-repeat 13px;
+  }
+
+  &__cta {
+    display: flex;
+    justify-content: center;
+    margin-top: 24px;
+  }
+
+  &__advanced {
+    display: flex;
+    margin-top: 40px;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+
+    @include media-breakpoint-sm-up() {
+      flex-direction: row;
+    }
+
+    h2 {
+      margin-bottom: 12px;
+
+      @include media-breakpoint-sm-up() {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__movie-type {
+    margin: 0 0 16px 0;
+
+    @include media-breakpoint-sm-up() {
+      margin: 0 12px;
+    }
+  }
+
+  &__movie-plot {
+    display: flex;
+
+    &--label {
+      margin-right: 12px;
+
+      @include media-breakpoint-md-up() {
+        margin: 0 12px;
+      }
+    }
+
+    label {
+      margin-right: 8px;
+
+      span {
+        margin-left: 4px;
+      }
+    }
+  }
+}

@@ -1,0 +1,68 @@
+<section class="search-bar" aria-label="Search for a movie">
+  <form
+    [formGroup]="searchForm"
+    role="search"
+    (ngSubmit)="
+      searchMovieByTitle(movieSearchInput.value, movieTypeSelector.value)
+    "
+  >
+    <input
+      #movieSearchInput
+      type="search"
+      placeholder="Search a movie by title"
+      aria-label="Search a movie"
+      formControlName="movieName"
+      data-test="input_search"
+    />
+
+    <div class="search-bar__cta">
+      <button class="primary-btn" data-test="search_button" type="submit">
+        Search
+      </button>
+    </div>
+
+    <div class="search-bar__advanced">
+      <h2>Advanced search:</h2>
+
+      <div class="search-bar__movie-type">
+        <label for="movie-type">Movie type: </label>
+
+        <select #movieTypeSelector formControlName="movieType" id="movie-type">
+          <option value="movie">Movie</option>
+          <option value="series">Series</option>
+          <option value="episode">Episode</option>
+          <option value=" ">All</option>
+        </select>
+      </div>
+
+      <div class="search-bar__movie-plot">
+        <p class="search-bar__movie-plot--label">Movie plot:</p>
+        <label>
+          <input
+            type="radio"
+            value="full"
+            formControlName="moviePlot"
+            (change)="changePlot($event)"
+          />
+          <span>Full</span>
+        </label>
+
+        <label>
+          <input
+            type="radio"
+            value="short"
+            formControlName="moviePlot"
+            (change)="changePlot($event)"
+          />
+          <span>Short</span>
+        </label>
+      </div>
+    </div>
+
+    <div
+      *ngIf="submitted && movieNameControl?.invalid && movieNameControl?.errors?.['required']"
+    >
+      <p class="error-notification">Error: Movie name is required.</p>
+    </div>
+  </form>
+</section>
