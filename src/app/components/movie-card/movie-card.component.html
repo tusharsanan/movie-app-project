@@ -1,19 +1,17 @@
-<section
+<div
   *ngIf="movie && !movie.Error; else errorMessageTemplate"
-  aria-label="Movie card"
+  class="movie-card"
 >
   <a
     routerLink="/movie-detail"
     [queryParams]="{ movieId: movie.imdbID }"
-    href="javascript:void(0)"
     class="movie-card__link"
-    ><div class="movie-card">
-      <img alt="Poster of a movie" [src]="movie.Poster" />
-      <p class="movie-card__title">{{ movie.Title }}</p>
-      <p class="movie-card__year">{{ movie.Year }}</p>
-    </div></a
-  >
-</section>
+    ><img alt="Poster of a movie" [src]="movie.Poster"
+  /></a>
+
+  <p class="movie-card__title">{{ movie.Title }}</p>
+  <p class="movie-card__year">{{ movie.Year }}</p>
+</div>
 
 <ng-template #errorMessageTemplate>
   <p>{{ movie?.Error }}</p></ng-template
