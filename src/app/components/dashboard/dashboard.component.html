@@ -1,9 +1,10 @@
-<app-search-bar></app-search-bar>
+<section aria-label="Dashboard">
+  <app-search-bar></app-search-bar>
 
-<section class="dashboard" aria-label="Dashboard">
   <ng-container *ngIf="movieSearchDetails$ | async as movieSearchResults">
     <div
       *ngIf="movieSearchResults.Response && movieSearchResults.Search?.length"
+      class="dashboard"
     >
       <h3>Search results:</h3>
 
