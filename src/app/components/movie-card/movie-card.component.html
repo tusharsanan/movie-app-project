@@ -4,7 +4,7 @@
   routerLink="/movie-detail"
   [queryParams]="{ movieId: movie.imdbID }"
 >
-  <img alt="Poster of a movie" [src]="movie.Poster" />
+  <img alt="Poster of a movie" [src]="movie.Poster" loading="lazy" />
 
   <p class="movie-card__title">{{ movie.Title }}</p>
   <p class="movie-card__year">{{ movie.Year }}</p>
