@@ -1,5 +1,3 @@
-@import "src/app/scss/variables/_variables.scss";
-
 nav {
   ul {
     display: flex;
@@ -11,7 +9,7 @@ nav {
     a {
       color: #fff;
       &.navbar__item--active {
-        color: $secondary-color;
+        color: #ffb7e9;
         font-weight: bold;
       }
     }
