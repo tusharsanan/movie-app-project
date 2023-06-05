@@ -16,6 +16,7 @@ export class SearchService {
     Response: '',
     Search: [],
     totalResults: '',
+    Error: undefined,
   });
 
   public plotType = new BehaviorSubject<string>('full');

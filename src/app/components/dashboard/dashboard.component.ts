@@ -27,6 +27,7 @@ export class DashboardComponent implements OnInit {
       Response: '',
       Search: [],
       totalResults: '',
+      Error: undefined,
     });
 
     this.movieSearchDetails$ = this._searchService.onSearchResults();
