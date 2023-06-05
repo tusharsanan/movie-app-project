@@ -1,13 +1,10 @@
 <div
   *ngIf="movie && !movie.Error; else errorMessageTemplate"
   class="movie-card"
+  routerLink="/movie-detail"
+  [queryParams]="{ movieId: movie.imdbID }"
 >
-  <a
-    routerLink="/movie-detail"
-    [queryParams]="{ movieId: movie.imdbID }"
-    class="movie-card__link"
-    ><img alt="Poster of a movie" [src]="movie.Poster"
-  /></a>
+  <img alt="Poster of a movie" [src]="movie.Poster" />
 
   <p class="movie-card__title">{{ movie.Title }}</p>
   <p class="movie-card__year">{{ movie.Year }}</p>
